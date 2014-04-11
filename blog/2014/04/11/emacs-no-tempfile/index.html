@@ -3,7 +3,7 @@
 <html lang="en-GB">
 <head>
 	<meta charset="utf-8">
-	<title>GruntでWatch開始時に常にChromeで開く方法  | SAIKAWA</title>
+	<title>Emacsの一時ファイルを作らない設定  | SAIKAWA</title>
 
 	<meta name="author" content="Muyuu">
 
@@ -49,7 +49,7 @@
 
 	<div id="content" class="inner"><article class="post">
 	<header>
-		<h2 class="title">GruntでWatch開始時に常にChromeで開く方法</h2>
+		<h2 class="title">Emacsの一時ファイルを作らない設定</h2>
 		<div class="meta date">
 
 
@@ -62,38 +62,21 @@
   
 
 
-<time datetime="2014-04-11T21:07:20+09:00" pubdate data-updated="true">Apr 11<span>th</span>, 2014</time></div>
+<time datetime="2014-04-11T21:58:57+09:00" pubdate data-updated="true">Apr 11<span>th</span>, 2014</time></div>
 	</header>
-	<div class="entry-content"><p>Gruntのgrunt-contrib-connectを使って各案件のローカル環境を作っている人で、「開発はChromeでやりたいんだけどデフォルトのブラウザはSafariなんだよね」って人向けのTIPS、というか僕向けのTIPS。</p>
+	<div class="entry-content"><p>Emacsを使っていていつも邪魔だなぁと思うのが「.<em>~」の一時保存ファイル。あと「#.</em>#」とかオートセーブファイルもほとんどいらない。</p>
 
-<h2>必要なパッケージ</h2>
+<p>なので消します。</p>
 
-<p>grunt-contorib-connectにはブラウザを指定する能力は備わっていないのそいつの「ブラウザを開く」能力は使わないようにする。代わりに<a href="https://www.npmjs.org/package/grunt-open">grunt-open</a>を使えばブラウザを指定することができるのでそれを使う</p>
+<p>~/.emacs/init.el に以下を記述</p>
 
-<h2>インストール</h2>
-
-<p>プロジェクトディレクトリからターミナルで以下を。</p>
-
-<pre><code>npm install --save-dev grunt-open
+<pre><code>;; *.~ を作らない
+(setq make-backup-files nil)
+;; .#* を作らない
+(setq auto-save-default nil)
 </code></pre>
 
-<p>Gruntfile.coffeeに記述</p>
-
-<pre><code># page open
-open:
-  server:
-    url: 'http://localhost:&lt;%= connect.server.options.port %&gt;'
-    app: 'Google Chrome'
-
-# タスク設定箇所
-grunt.registerTask "default", ["connect", "open", "esteWatch"]
-</code></pre>
-
-<h2>使い方</h2>
-
-<p>上記設定ができたらタスクを起動すればChromeでページが表示されるはず</p>
-
-<p>GruntかわいいよGrunt</p>
+<p>これで邪魔なファイルは作られなくなるけどその代わりに1世代前のファイルに戻したいって事ができなくなるから注意が必要っちゃ必要。</p>
 </div>
 
 </article>
@@ -102,19 +85,19 @@ grunt.registerTask "default", ["connect", "open", "esteWatch"]
 	<div class="share">
 	  <!-- <ul> -->
 	  <!--   <li>
-  <a href="https://twitter.com/intent/tweet?text=GruntでWatch開始時に常にChromeで開く方法 by @&url=http://muyuu.github.io/blog/2014/04/11/open-chrome-for-grunt/" title="Share GruntでWatch開始時に常にChromeで開く方法 on Twitter">
+  <a href="https://twitter.com/intent/tweet?text=Emacsの一時ファイルを作らない設定 by @&url=http://muyuu.github.io/blog/2014/04/11/emacs-no-tempfile/" title="Share Emacsの一時ファイルを作らない設定 on Twitter">
     <img src="/images/social/twitter.png" />
   </a>
 </li>
  -->
 	  <!--   <li>
-  <a href="https://www.facebook.com/sharer.php?u=http://muyuu.github.io/blog/2014/04/11/open-chrome-for-grunt/" title="Share GruntでWatch開始時に常にChromeで開く方法 on Facebook">
+  <a href="https://www.facebook.com/sharer.php?u=http://muyuu.github.io/blog/2014/04/11/emacs-no-tempfile/" title="Share Emacsの一時ファイルを作らない設定 on Facebook">
     <img src="/images/social/facebook.png" />
   </a>
 </li>
  -->
 	  <!--   <li>
-  <a href="https://plus.google.com/share?url=http://muyuu.github.io/blog/2014/04/11/open-chrome-for-grunt/" title="Share GruntでWatch開始時に常にChromeで開く方法 on Google Plus">
+  <a href="https://plus.google.com/share?url=http://muyuu.github.io/blog/2014/04/11/emacs-no-tempfile/" title="Share Emacsの一時ファイルを作らない設定 on Google Plus">
     <img src="/images/social/google.png" />
   </a>
 </li>

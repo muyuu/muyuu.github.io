@@ -4,13 +4,34 @@
   <title><![CDATA[SAIKAWA]]></title>
   <link href="http://muyuu.github.io/atom.xml" rel="self"/>
   <link href="http://muyuu.github.io/"/>
-  <updated>2014-04-11T21:46:21+09:00</updated>
+  <updated>2014-04-11T22:04:12+09:00</updated>
   <id>http://muyuu.github.io/</id>
   <author>
     <name><![CDATA[Muyuu]]></name>
     
   </author>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Emacsの一時ファイルを作らない設定]]></title>
+    <link href="http://muyuu.github.io/blog/2014/04/11/emacs-no-tempfile/"/>
+    <updated>2014-04-11T21:58:57+09:00</updated>
+    <id>http://muyuu.github.io/blog/2014/04/11/emacs-no-tempfile</id>
+    <content type="html"><![CDATA[<p>Emacsを使っていていつも邪魔だなぁと思うのが「.<em>~」の一時保存ファイル。あと「#.</em>#」とかオートセーブファイルもほとんどいらない。</p>
+
+<p>なので消します。</p>
+
+<p>~/.emacs/init.el に以下を記述</p>
+
+<pre><code>;; *.~ を作らない
+(setq make-backup-files nil)
+;; .#* を作らない
+(setq auto-save-default nil)
+</code></pre>
+
+<p>これで邪魔なファイルは作られなくなるけどその代わりに1世代前のファイルに戻したいって事ができなくなるから注意が必要っちゃ必要。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GruntでWatch開始時に常にChromeで開く方法]]></title>
