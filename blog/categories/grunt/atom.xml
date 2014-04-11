@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: grunt | SAIKAWA]]></title>
+  <link href="http://muyuu.github.io/blog/categories/grunt/atom.xml" rel="self"/>
+  <link href="http://muyuu.github.io/"/>
+  <updated>2014-04-11T21:39:21+09:00</updated>
+  <id>http://muyuu.github.io/</id>
+  <author>
+    <name><![CDATA[Muyuu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GruntでWatch開始時に常にChromeで開く方法]]></title>
+    <link href="http://muyuu.github.io/blog/2014/04/11/open-chrome-for-grunt/"/>
+    <updated>2014-04-11T21:07:20+09:00</updated>
+    <id>http://muyuu.github.io/blog/2014/04/11/open-chrome-for-grunt</id>
+    <content type="html"><![CDATA[<p>Gruntのgrunt-contrib-connectを使って各案件のローカル環境を作っている人で、「開発はChromeでやりたいんだけどデフォルトのブラウザはSafariなんだよね」って人向けのTIPS、というか僕向けのTIPS。</p>
+
+<h2>必要なパッケージ</h2>
+
+<p>grunt-contorib-connectにはブラウザを指定する能力は備わっていないのそいつの「ブラウザを開く」能力は使わないようにする。代わりに<a href="https://www.npmjs.org/package/grunt-open">grunt-open</a>を使えばブラウザを指定することができるのでそれを使う</p>
+
+<h2>インストール</h2>
+
+<p>プロジェクトディレクトリからターミナルで以下を。</p>
+
+<pre><code>npm install --save-dev grunt-open
+</code></pre>
+
+<p>Gruntfile.coffeeに記述</p>
+
+<pre><code># page open
+open:
+  server:
+    url: 'http://localhost:&lt;%= connect.server.options.port %&gt;'
+    app: 'Google Chrome'
+
+# タスク設定箇所
+grunt.registerTask "default", ["connect", "open", "esteWatch"]
+</code></pre>
+
+<h2>使い方</h2>
+
+<p>上記設定ができたらタスクを起動すればChromeでページが表示されるはず</p>
+
+<p>GruntかわいいよGrunt</p>
+]]></content>
+  </entry>
+  
+</feed>

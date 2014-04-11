@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://muyuu.github.io/sitemap.xml 
